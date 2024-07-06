@@ -1,0 +1,158 @@
+Materials:
+  Si1:
+    url: 'https://www.efunda.com/materials/elements/HC_Table.cfm?Element_ID=Si'
+    thermal_conductivity: 130
+    thickness: 300e-6
+    density: 2300
+    temp: [200,250,298.15,350,400,500,600]
+    cp: [556.9,648.7,705,757.7,788.3,830.7,859.9]
+    pressure: [101325,101325,100000,101325,101325,101325,101325]
+    boundary: adiabatic
+  Si2:
+    thickness: 270e-6
+    thermal_conductivity: 110
+    density: 2320
+    temp: 300
+    cp: 712
+    pressure: 100000
+    boundary: adiabatic
+  Si3:
+   #used in matlab model
+    thickness: 270e-6
+    thermal_conductivity: 110
+    density: 2320
+    thermal_diffusivity: 6.677999e-5 # was 6.6728e-05
+    boundary: adiabatic               # options 'isothermal','semi-infinite', 'adiabatic'
+  Glass:
+    thickness: 300e-6
+    thermal_conductivity: 1.1811298410131938 #1.1808768496114725  #1.181129843514247
+    density: 2500
+    temp: 300
+    cp: 964.7933079782014  #965
+    pressure: 100000
+    optimize: thermal_conductivity,thermal_diffusivity   # options thermal_conductivity,thermal_diffusivity , thermal_boundary_resistance , if absent measured data plotted only
+    boundary: 'semi-infinite'
+  Air:
+    thickness: 30000e-6
+    thermal_conductivity: 0.01
+    density: 1.2754
+    temp: 300
+    cp: 1
+    pressure: 100000
+  Glass2:
+    thickness: 300e-6
+    thermal_conductivity: 5.5
+    density: 2500
+    temp: 300
+    cp: 965
+    pressure: 100000
+  Gold:
+    TCR: 0.0022
+    density: 19320
+    specific_heat: 129
+    thermal_conductivity: 315 
+    thermal_boundary_resistance: 1.5e-7
+    #optimize: thermal_boundary_resistance        
+  PS:
+    porosity: 0.772
+    thickness: 3e-6
+    thermal_conductivity: 0.6772 # 0.772 
+    thermal_diffusivity: 5.096e-07  # 7.096e-07 
+    #thermal_boundary_resistance : 1.5e-9
+    optimize: thermal_conductivity,thermal_diffusivity #,thermal_boundary_resistance 
+    material: 'Si3'  # the material must be defined above
+  PSx:
+    porosity: 0.772
+    thickness: 3e-6
+    thermal_conductivity: 0.6772 # 0.772 
+    thermal_diffusivity: 5.096e-07  # 7.096e-07 
+    #thermal_boundary_resistance : 1.5e-9
+    #optimize: thermal_conductivity,thermal_diffusivity #,thermal_boundary_resistance 
+    material: 'Si3'  # the material must be defined above
+  PS2:
+    porosity: 0
+    thickness: 2.7e-6
+    thermal_conductivity: 2.181129843514247 #1.171632232374357 #1.181129843514247  #1.1707 [1.171632232374357, 1.181129843514247] [4.787328888261241e-07
+    thermal_diffusivity: 4.895874999022786e-07 # 4.787328888261241e-07 #4.852642487046633e-07
+    #optimize: thermal_conductivity,thermal_diffusivity
+    material: 'Glass'  # the material must be defined above
+
+  PS2b:
+    porosity: 0
+    thickness: 3e-6
+    thermal_conductivity: 1.181129843514247 #1.181129843514247 # 1.2006986787957183] [4.773810481867524e-07] 1.171632232374357 #1.181129843514247  #1.1707 [1.171632232374357, 1.181129843514247] [4.787328888261241e-07
+    thermal_diffusivity: 4.895874999022786e-07 #4.773810481867524e-07 #4.895874999022786e-07 # 4.787328888261241e-07 #4.852642487046633e-07
+    material: 'Glass'  # the material must be defined above
+    #optimize: thermal_conductivity,thermal_diffusivity
+    boundary: 'isothermal'
+  PS3:
+    porosity: 0.77
+    thickness: .3e-6
+    thermal_conductivity: 0.03 
+    thermal_diffusivity: 7.096e-07 
+    #optimize: thermal_conductivity,thermal_diffusivity
+    material: 'Si'  # the material must be defined above
+  PS4:
+    porosity: 0
+    thickness: 2.7e-6
+    thermal_conductivity: 1.4815469956
+    thermal_diffusivity: 8.30272e-07
+    material: 'Glass'  # the material must be defined above
+  PS5:
+    porosity: 0
+    thickness: 2.7e-6
+    thermal_conductivity: 0.83168291
+    thermal_diffusivity: 2.651511e-07
+    material: 'Glass'  # the material must be defined above
+Heater:
+  material: 'Gold'
+  R: 25
+  l: 0.0025
+  width: 28.5e-6  # or 'b which is width/2
+  thickness: 200E-9
+  Prms: 50e-3
+  #thermal_boundary_resistance: 1.5e-07
+  capacitance_flag: True
+ 
+Amplifier:
+  gain_nominal: 10
+  use_calibration: True
+  Calibration_in: '.\CalibrationFiles\BlueBird_CalibrationIn.csv'
+  Calibration_out: '.\CalibrationFiles\BlueBird_CalibrationOut.csv'
+
+Measured:
+  data: Glass.csv # add extra files using file1.csv,file2,csv,file3,csv 
+  downsample: 1 # use downsamples >1 to select every nth value from the frequecies measured, to reduce computation al time if required
+  output: v  # string= v =write data o the output file ([measured]_Model_layerN.txt') as voltages, otherwise temperatures are written 
+  range: 1 #.02 # range from 0 to 1 of the measured data
+  ambientTinC: 25
+  model: 'Cahill' # borca'  #Options 'Bypass' or 'Fit'+ 'Borca' 'Kim or 'Cahill' 'Bypass-Cahill'
+  plot: True
+  guess:
+    k:
+      min: 0.03
+      max: 3
+    D:
+      min: 1e-8
+      max: 1e-6
+  integration:
+    min: 0 # max integration is min/heater['b']
+    max: 100  # max integration is max/heater['b']
+
+Layers:
+  #- [Heater, PS,PS2,Glass,Glass]  #order defines layers
+  #- [Heater, PS3,Glass]
+  #- [Heater, Glass,PS]
+  - [Heater, Glass]
+#  - [Heater, PS,Si2]
+#  - [Heater, PS,Si3]
+#  - [Heater, PS,Si1]
+#  - [Heater, PS,Si2]  
+  #- [Heater, PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2b]
+  #- [Heater, PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2,PS2b]  #order defines layers
+  #- [Heater, PS2,PS2,PS2,PS2,PS2,PS2,PS2b]  #order defines layers
+  #- [Heater, PS3, Glass]  #order defines layers
+  #- [Heater, PS,PS3,PS,PS3,PS,PS3,PS,PS3,PS,PS3,PS,PS3,Glass2]  #order defines layers
+  #- [Heater, PS,Glass]  #order defines layers
+    #Film: 'PS'
+    #Substrate: 'Si'
