@@ -1,15 +1,14 @@
 # ThermStack
  A thermal simulation and data fit that allows multilayered stacks
-useage:
-python Thermstack ConfigFile.yaml
-where the ConfigFile.yaml has a number of main keywords defines the 
-*Material, Heater, Amplifier, Measured and Layers.  Each main keyword defines:
-*Material: one or more materials than can be used to defin the Heater material and the Layers
-*Heater: which define the characteristics of the heater layer
-*Amplifer: which defines the frequency response files (or a constant) 
-*Measured: defines the measured data which the simulation is compared against
-*Layers: the stack of layers defined using the Heater and materials defined in the Materials keyword
-Within each keyword sub-keywords are defined, namely:
+useage:<br>
+<code> python Thermstack ConfigFile.yaml</code>
+where the ConfigFile.yaml has a number of main keywords defines the Material, Heater, Amplifier, Measured and Layers.  Each main keyword defines:<br>
+* Material: one or more materials than can be used to defin the Heater material and the Layers
+* Heater: which define the characteristics of the heater layer
+* Amplifer: which defines the frequency response files (or a constant) 
+* Measured: defines the measured data which the simulation is compared against
+* Layers: the stack of layers defined using the Heater and materials defined in the Materials keyword
+Within each keyword sub-keywords are defined, namely:<br>
 Material:
   mat:
     url: string http website 
@@ -56,9 +55,9 @@ Layers:
   - List2
   - List3
 
-installation
-the code requires
-conda install matplotlib
-conda install scipy
-conda install conda-forge::quadpy
+# Installation
+the code requires<br>
+<code>conda install matplotlib</code>
+<code>conda install scipy</code>
+<code>conda install conda-forge::quadpy</code>
 
