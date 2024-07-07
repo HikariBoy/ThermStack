@@ -4,7 +4,7 @@
  ## Installation
  the code has been tested on python 3.9 under minconda.  If you don't have python 3.9 installed, I suggest creating a new conda environment during testing using:<br>
  <code>conda create -n thermal python=3.9</code><br>
- and then enter the new environment using <code>conda activate thermal</code>.  In the new <b>thermal</b> environment the following installtions are required:<br>
+ and then enter the new environment using <code>conda activate thermal</code>.  In the new <b>thermal</b> environment the following installations are required:<br>
  <code>conda install matplotlib</code><br>
  <code>conda install scipy</code><br>
  <code>conda install conda-forge::quadpy</code><br>
@@ -14,8 +14,8 @@
 
 
  ## Useage:<br>
-To run the program from the correct conda environment type:<br>
-<code> python Thermstack ConfigFile.yaml</code>  (or just <code> python Thermstack </code> for the default .yaml file)<br> 
+To run the program from the correct conda environment (<b>thermal</b> if following the above example) type:<br>
+<code> python ThermStack ConfigFile.yaml</code>  (or just <code> python ThermStack </code> for the default .yaml file)<br> 
 where the <b>ConfigFile.yaml</b> consists of a number top-level and sub-level keywords followed by defined parameters.  The top-level keywords define the <code>Material, Heater, Amplifier, Measured and Layers</code>.  Each main keyword defines:<br>
 * <code>Material</code>: one or more materials than can be used to defin the Heater material and the Layers
 * <code>Heater</code>: which define the characteristics of the heater layer
