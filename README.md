@@ -2,10 +2,14 @@
  A thermal simulation and data fit program that allows multi-layered stacks to be analysed using the 3-omega method.
 
  ## Installation
- the code requires<br>
+ the code has been tested on python 3.9  ad required the following installtions under an anaconda/minconda environment:<br>
  <code>conda install matplotlib</code><br>
  <code>conda install scipy</code><br>
  <code>conda install conda-forge::quadpy</code><br>
+ <code>conda install -c anaconda pyyaml</code><br>
+ <code>conda remove pillow</code><br>   you need to remove pillow if installed as version 10 caused issues in python 3.9
+ <code>conda install pillow=9.2.0</code><br>
+
 
  ## Useage:<br>
 To run the program from the correct conda environment type:<br>
