@@ -1,5 +1,5 @@
 # ThermStack
- A thermal simulation and data fit program that allows multi-layered stacks to be analysed using the 3-omega method.
+ A thermal simulation and data fit program that allows multi-layered stacks to be analysed using the 3-omega method.  This code should be used in conjuntion with the 3-omega electrical circuit detailed by [Dr. Sobhan Erfantalab](https://github.com/Sobhan10100101/3omega-method-signal-conditioning-circuit-PCB ) which provides a wide frequency band, low 3-rd harmonic noise circuit which enables high quality 3-omega measurements of thin filme and bulk substrates.  
 
  ## Installation
  the code has been tested on python 3.9 under minconda.  If you don't have python 3.9 installed, I suggest creating a new conda environment during testing using:<br>
@@ -9,13 +9,13 @@
  <code>conda install scipy</code><br>
  <code>conda install conda-forge::quadpy</code><br>
  <code>conda install -c anaconda pyyaml</code><br>
- <code>conda remove pillow</code>  you need to remove pillow if installed as version 10 caused issues in python 3.9 <br> 
+ <code>conda remove pillow</code>  you need to remove pillow if installed as version 10 caused issues in python 3.9 <br>
  <code>conda install pillow=9.2.0</code><br>
 
 
  ## Useage:<br>
 To run the program from the correct conda environment (<b>thermal</b> if following the above example) type:<br>
-<code> python ThermStack ConfigFile.yaml</code>  (or just <code> python ThermStack </code> for the default .yaml file)<br> 
+<code> python ThermStack ConfigFile.yaml</code>  (or just <code> python ThermStack </code> for the default .yaml file)<br>
 where the <b>ConfigFile.yaml</b> consists of a number top-level and sub-level keywords followed by defined parameters.  The top-level keywords define the <code>Material, Heater, Amplifier, Measured and Layers</code>.  Each main keyword defines:<br>
 * <code>Material</code>: one or more materials than can be used to defin the Heater material and the Layers
 * <code>Heater</code>: which define the characteristics of the heater layer
@@ -83,7 +83,13 @@ if the optional sub-keyword <code>optimize</code> in not included:
 
 
 ## Examples
-
+### Bulk Glass
+Running the code:<br>
+<code> python ThermStack bulk.yaml</code>  <br>
+loads measured 3-omega data for a [bulk glass substrate](Glass.csv) obtained by [Dr. Sobhan Erfantalab as part of his Ph.D.](10.26182/qtxb-2f91) and attempts to fit the model proposed by [D. Cahil - Review of Scientific Instruments 61, 802 (1990)](https://doi.org/10.1063/1.1141498) to the measured data.  The resulting measured data and fit are shown along with an illustration of the various layers in the model being fit.  From the data fit shown the thermal parameters extracted from the [bulk glass substrate](Glass.csv) indicated a thermal conductivity of 1.23 W/mK+/-1.27% and thermal diffusivity of 0.43 $mm^2/s$+/-4.64%  for this glass. <br><br>
+Running the code:<br>
+<code> python ThermStack thin.yaml</code>  <br>
+loads measured 3-omega data for a [thin film of porous silicon](PS77_data.csv) fabricated by [Dr. Sobhan Erfantalab as part of his Ph.D.](10.26182/qtxb-2f91) and attempts to fit the thin film stack model proposed by  [T. Borca-Tasciuc in  Review of Scientific Instruments 72, 2139 (2001)](https://doi.org/10.1063/1.1353189) to the data. The resulting measured data and fit along with a 2nd model for a different set of thermal parameters, to show the difference that changes in thermal conductivity and thermal diffusivity can have on the thermal spectrum.  From the data fit the thermal parameters extracted from the[thin film of porous silicon](PS77_data.csv)  indicated a thermal conductivity of 0.81 W/mK+/-1.01% and thermal diffusivity of 1.23 $mm^2/s$+/-8.06%.<br>
 
 ## Outstanding documentation
 * Requires link to 3-omega papers and others
