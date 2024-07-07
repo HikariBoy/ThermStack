@@ -7,7 +7,7 @@
  <code>conda install scipy</code><br>
  <code>conda install conda-forge::quadpy</code><br>
  <code>conda install -c anaconda pyyaml</code><br>
- <code>conda remove pillow</code><br>   you need to remove pillow if installed as version 10 caused issues in python 3.9
+ <code>conda remove pillow</code>  you need to remove pillow if installed as version 10 caused issues in python 3.9 <br> 
  <code>conda install pillow=9.2.0</code><br>
 
 
