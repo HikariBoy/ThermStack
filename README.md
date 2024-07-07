@@ -69,7 +69,7 @@ Under each top-level keyword there sub-keywords are defined where the parameters
 Note that the preference is for <code>thermal_diffusivity</code> to be defined for material paremeters.  However, alteratively     <code>density, temp,cp and pressure</code> can be defined from which <code>thermal_diffusivity</code> will be internally calculated.  In this case, keyword <code>pressure</code> is only required if there is a variation if the variation of temperature and pressure is known, see for exampel the definition of Silicon (Si1) in the example <code>thin.yaml</code> file
 
 ## Operation
-if the optional sub-keyword <code>optimize</code> in included under the top-level <code>Material</code> keyword, then the code attempts to fit the file defined under <code>Measured>data</code> and provide the optimized value of  <b>thermal_conductivity, thermal_diffusivity,  thermal_boundary_resistance</b>, depending on which of these were specified.  Specifying more parameters requires more computation time and may result in an undefined solution.
+if the optional sub-keyword <code>optimize</code> in included under the top-level <code>Material</code> keyword, then the code attempts to fit the file defined under <code>Measured>data</code> and provide the optimized value of  <b>thermal_conductivity, thermal_diffusivity,  thermal_boundary_resistance</b>, depending on which of these were specified.  Specifying more parameters requires more computation time and may result in an undefined solution.<br>
 if the optional sub-keyword <code>optimize</code> in not included:
 * the parameters given are simply used to plot the expected 3-omega response
 * more than List of layers can be specified under the  <code>Layers</code>  top-level keyword, allowing the impact of different layers and parameters to be observed.  
@@ -80,8 +80,8 @@ if the optional sub-keyword <code>optimize</code> in not included:
 
 
 ## Outstanding documentation
-Requires link to 3-omega papers and others
-Should reference UWA
-Image of screen output under Examples
-Complete Examples text
-Units need to be defined for all parameetrs
+* Requires link to 3-omega papers and others
+* Should reference UWA
+* Image of screen output under Examples
+* Complete Examples text
+* Units need to be defined for all parameetrs
