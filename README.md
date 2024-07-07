@@ -1,6 +1,6 @@
 # ThermStack
 <img src=".\UWA-Full-Ver-CMYK3.png" alt="UWA logo"  align="right" width="150"/><br>
- A thermal simulation and data fit program that allows multi-layered stacks to be analysed using the 3-omega method.  This code should be used in conjuntion with the 3-omega electrical circuit detailed by [Dr. Sobhan Erfantalab](https://github.com/Sobhan10100101/3omega-method-signal-conditioning-circuit-PCB ) which provides a wide frequency band, low third-harmonic noise circuit which enables high quality 3-omega measurements of thin films and bulk substrates.  
+ A 3-omega method based thermal model that allows bulk and multi-layered stacks to be analysed and thermal parameters (thermal conductivity and thermal diffusivity) to be extracted from the 3-omega  measurements.  This code should be used in conjunction with the 3-omega electrical circuit detailed by [Dr. Sobhan Erfantalab](https://github.com/Sobhan10100101/3omega-method-signal-conditioning-circuit-PCB ) which provides a wide frequency band, low third-harmonic circuit, enabling high quality 3-omega measurements of thin films and bulk substrates.  
 
  ## Installation
  the code has been tested on python 3.9 under minconda.  If you don't have python 3.9 installed, I suggest creating a new conda environment during testing using:<br>
